@@ -1,3 +1,8 @@
+---
+title: Tourism Project Space
+sdk: docker
+app_port: 8501
+---
 # Automated MLOps Pipeline for Wellness Tourism Package Purchase Prediction
 
 ## Business Context
