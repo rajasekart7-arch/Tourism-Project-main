@@ -3,14 +3,24 @@ import pandas as pd
 from huggingface_hub import hf_hub_download
 import joblib
 
-# Download the model from Hugging Face Hub
-model_path = hf_hub_download(
-    repo_id="Rajse/Tourism-Project-model",
-    filename="best_Tourism-Project_model_v1.joblib"
-)
+# # Download the model from Hugging Face Hub
+# model_path = hf_hub_download(
+#     repo_id="Rajse/Tourism-Project-model",
+#     filename="best_Tourism-Project_model_v1.joblib"
+# )
 
-# Load the trained model
-model = joblib.load(model_path)
+# # Load the trained model
+# model = joblib.load(model_path)
+
+@st.cache_resource
+def load_model():
+    model_path = hf_hub_download(
+        repo_id="Rajse/Tourism-Project-model",
+        filename="best_Tourism-Project_model_v1.joblib"
+    )
+    return joblib.load(model_path)
+
+model = load_model()
 
 # Streamlit UI
 st.title("MLOPS – Customer Package Purchase Prediction App")
